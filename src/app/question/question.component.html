@@ -1,22 +1,21 @@
 <div class="row d-flex justify-content-center mt-5">
   <div class="col-lg-4 text-center">
     <!-- Show the Question title -->
-    <h1>Question {{ this.cQ }}: {{ this.quiz.questions[this.cQ].name }}</h1>
+    <h1>Question {{ quiz.currentQuestion + 1 }}: {{ quiz.questions[quiz.currentQuestion].title }}</h1>
   </div>
 </div>
 <div class="row d-flex justify-content-center mt-5">
-    <div class="col-lg-4 text-center">
-      
-      
-      <label>
-        
-      </label>
-      
-    </div>
+  <div class="col-lg-4 text-center">
+      <div *ngFor="let choice of quiz.questions[quiz.currentQuestion].choices">
+          {{ choice.name }}
+          <input [value]="choice.value" type="radio" [(ngModel)]="quiz.questions[quiz.currentQuestion].selectedAnswer">
+      </div>
+
   </div>
+</div>
 <div class="row d-flex justify-content-center  mt-3">
   <div class="col-lg-4 d-flex justify-content-between text-center">
-    <button routerLink="/home" class="btn btn-danger">Go Back</button>
-    <button routerLink="/results" class="btn btn-success">Continue</button>
+    <button (click)="quiz.goPreviousQuestion()" class="btn btn-danger">Go Back</button>
+    <button (click)="quiz.goNextQuestion()" class="btn btn-success">Continue</button>
   </div>
 </div>

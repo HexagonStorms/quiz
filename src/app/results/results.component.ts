@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { QuizService } from '../quiz.service';
 
 @Component({
   selector: 'app-results',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public quiz: QuizService) {
+    this.quiz = quiz;
+   }
 
   ngOnInit() {
   }

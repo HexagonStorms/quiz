@@ -7,7 +7,7 @@ import { QuestionComponent } from "./question/question.component";
 const routes: Routes = [
   { path: "home", component: HomeComponent },
   { path: "question/:id", component: QuestionComponent },
-  { path: "results", component: ResultsComponent },
+  { path: "result", component: ResultsComponent },
   { path: "", redirectTo: "/home", pathMatch: "full"}
   
 ];
